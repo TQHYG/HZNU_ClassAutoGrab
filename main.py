@@ -11,6 +11,11 @@ driver_path ='C:/dev/edgedriver_win64/msedgedriver.exe'
 service = Service(executable_path=driver_path)
 driver = webdriver.Edge(service=service)
 
+#教务系统用户名与密码
+username="username"
+password="password"
+
+
 # 打开课程网站
 driver.get('http://jwxt.hznu.edu.cn/jwglxt/xtgl/login_slogin.html')
 
@@ -23,8 +28,8 @@ def login():
     password = wait.until(EC.presence_of_element_located((By.ID, 'mm')))
     login_button = wait.until(EC.presence_of_element_located((By.ID, 'dl')))
 
-    username.send_keys('username')
-    password.send_keys('password')
+    username.send_keys(username)
+    password.send_keys(password)
 
     # 获取并输入验证码
     captcha_image = wait.until(EC.presence_of_element_located((By.ID, 'yzmPic')))
